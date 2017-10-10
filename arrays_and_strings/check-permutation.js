@@ -9,36 +9,40 @@
   4) Compare hash tables
 */
 
-function checkPermutation(string1, string2){
-  var string1Arr = string1.split("").sort();
-  var string2Arr = string2.split("").sort();
+/* 
+This was my initial response, and it works but it's more code than needs to be.  In the refactored version, we'll simply sort the sentences and compare them to each other.  We'll still check for array.length to be the same.. but technically, a permutation means the sentences are the same except for different character placement in the sentence.  Sorting and comparing is all you really need to do.
+*/
 
-  var string1Obj = {};
-  var string2Obj = {};
+// function checkPermutation(string1, string2){
+//   var string1Arr = string1.split("").sort();
+//   var string2Arr = string2.split("").sort();
 
-  if (string1Arr.length != string2Arr.length){
-    return false;
-  } else {
-    var arrSize = string1Arr.length
-  }
+//   var string1Obj = {};
+//   var string2Obj = {};
 
-  // This same loop can be use for both string1Obj and string2Obj because we've already tested to make sure that they are the same length.  If they share the same length, then arrSize is appropriate for each one, regardless of which of the two arrays we used .length() on.
-  for (var i = 0; i < arrSize; i++){
-    // String 1 logic
-    var string1CurrentChar = string1Arr[i];
-    if (!string1Obj[string1CurrentChar]){
-      string1Obj[string1CurrentChar] = 0;
-    }
-    string1Obj[string1CurrentChar]++;
+//   if (string1Arr.length != string2Arr.length){
+//     return false;
+//   } else {
+//     var arrSize = string1Arr.length
+//   }
 
-    // String 2 logic
-    var string2CurrentChar = string2Arr[i];
-    if (!string2Obj[string2CurrentChar]){
-      string2Obj[string2CurrentChar] = 0;
-    }
-    string2Obj[string2CurrentChar]++;
-  }
+//   // This same loop can be use for both string1Obj and string2Obj because we've already tested to make sure that they are the same length.  If they share the same length, then arrSize is appropriate for each one, regardless of which of the two arrays we used .length() on.
+//   for (var i = 0; i < arrSize; i++){
+//     // String 1 logic
+//     var string1CurrentChar = string1Arr[i];
+//     if (!string1Obj[string1CurrentChar]){
+//       string1Obj[string1CurrentChar] = 0;
+//     }
+//     string1Obj[string1CurrentChar]++;
 
-  // JSON.stringify will convert a JavaScript value to a JSON string, allowing you to compare two objects like this.
-  return JSON.stringify(string1Obj) == JSON.stringify(string2Obj);
-}
+//     // String 2 logic
+//     var string2CurrentChar = string2Arr[i];
+//     if (!string2Obj[string2CurrentChar]){
+//       string2Obj[string2CurrentChar] = 0;
+//     }
+//     string2Obj[string2CurrentChar]++;
+//   }
+
+//   // JSON.stringify will convert a JavaScript value to a JSON string, allowing you to compare two objects like this.
+//   return JSON.stringify(string1Obj) == JSON.stringify(string2Obj);
+// }
