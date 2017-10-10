@@ -11,3 +11,27 @@
   5) If newStr.length == originalStr.length, return originalStr
     5a) Otherwise, return newStr
 */
+
+function stringCompression(string){
+  var stringArr = string.split('');
+  var stringLength = string.length;
+  var outputArr = [];
+  var currentCharCount = 0;
+
+  for (var i = 0; i < string.length; i++){
+    var currentChar = stringArr[i];
+    if (stringArr[i-1] != currentChar){
+      if (currentCharCount >= 1){
+        outputArr.push(currentCharCount)
+      };
+      outputArr.push(currentChar);
+      currentCharCount = 1;
+    } else if (!stringArr[i+1]) {
+      outputArr.push(currentCharCount);
+    } else {
+      currentCharCount++;
+    }
+  }
+
+  return outputArr.join('');
+}
