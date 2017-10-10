@@ -6,3 +6,30 @@
   3) Turn the string into an array of characters.  Iterate through them, and see if they exist in the other string.  keep a counter for similar, and for difference.  If difference is greater than 1, return false.
   4) If all tests pass, return true;
 */
+
+function oneAway(string1, string2){
+  var string1Arr = string1.split('');
+  var string2Arr = string2.split('');
+  var lengthDifference = string1Arr.length - string2Arr.length
+  var differenceCount = 0;
+
+  if (string1 == string2){
+    return true
+  };
+
+  if (lengthDifference > 1 || lengthDifference < -1 ){
+    return false
+  }
+
+  string1Arr.forEach(function(character){
+    if (string2Arr.indexOf(character) == -1){
+      differenceCount++;
+    }
+  })
+
+  if (differenceCount > 1){
+    return false;
+  }
+
+  return true;
+}
