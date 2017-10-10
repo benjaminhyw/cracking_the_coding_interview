@@ -11,3 +11,31 @@
   5) Go through the hash table and see if the counts follow the rules previously mentioned
   6) Return true if everything passes.  Return false otherwise.
 */
+
+function palindromePermutation(string){
+  var characters = 'abcdefghijklmnopqrstuvwxyz'
+  var stringArr = string.toLowerCase().split("");
+  var characterObj = {};
+  var oddCount = 0;
+
+  stringArr.forEach(function(character){
+    if (characters.indexOf(character) > -1){
+      if (!characterObj[character]){
+        characterObj[character] = 0;
+      }
+      characterObj[character]++;
+    }
+  })
+
+  for (var key in characterObj) {
+    if (characterObj[key] % 2 !== 0){
+      oddCount++;
+    }
+  }
+
+  if (oddCount > 1){
+    return false;
+  } else {
+    return true;
+  }
+}
