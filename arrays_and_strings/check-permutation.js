@@ -46,3 +46,14 @@ This was my initial response, and it works but it's more code than needs to be. 
 //   // JSON.stringify will convert a JavaScript value to a JSON string, allowing you to compare two objects like this.
 //   return JSON.stringify(string1Obj) == JSON.stringify(string2Obj);
 // }
+
+function checkPermutation(string1, string2){
+  var string1Arr = string1.split("").sort()
+  var string2Arr = string2.split("").sort()
+
+  if (string1Arr.length != string2Arr.length){
+    return false;
+  } else {
+    return string1Arr.join("") === string2Arr.join("");
+  }
+}
