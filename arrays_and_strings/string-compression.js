@@ -33,5 +33,9 @@ function stringCompression(string){
     }
   }
 
-  return outputArr.join('');
+  if (outputArr.length >= stringLength){
+    return string;
+  } else {
+    return outputArr.join('');
+  }
 }
