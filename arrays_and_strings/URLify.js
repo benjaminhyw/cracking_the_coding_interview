@@ -5,3 +5,16 @@
   2) Join array
 */
 
+function URLify(string){
+  var stringArr = string.split('');
+  var newArr = [];
+
+  for (i = 0; i < stringArr.length; i++){
+    if (stringArr[i] == " "){
+      newArr.push('%20');
+    } else {
+      newArr.push(stringArr[i])
+    }
+  }
+  return newArr.join('')
+}
