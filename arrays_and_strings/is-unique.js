@@ -9,3 +9,19 @@
     3b) If it does, return false
   4) Return true 
 */
+
+function isUnique(string){
+  var stringArr = string.split("");
+  var characters = {}
+
+  for (var i = 0; i < string.length; i++){
+    var currentChar = stringArr[i]
+    if (!characters[currentChar]){
+      characters[stringArr[i]] = 0;
+    } else {
+      return false;
+    }
+    characters[currentChar]++;
+  }
+  return true;
+}
