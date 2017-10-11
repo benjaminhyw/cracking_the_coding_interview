@@ -10,12 +10,12 @@
   5) Return final LinkedList
 */
 
-var LinkedList = function(){
+function LinkedList(){
   this.head = null;
   this.tail = null;
 }
 
-var Node = function(value, next, prev){
+function Node(value, next, prev){
   this.value = value;
   this.next = next;
   this.prev = prev;
