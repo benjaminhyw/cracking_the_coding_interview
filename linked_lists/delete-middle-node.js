@@ -13,3 +13,45 @@
       2ba) By doing this, if we see that the next value is the one we need to remove, we can tell current node.next = currentNode.next.next, and that's it
   3) Return array
 */
+
+function LinkedList(){
+  this.head = null;
+  this.tail = null;
+}
+
+function Node(value){
+  this.value = value;
+  this.next = null;
+}
+
+LinkedList.prototype.add = function(value){
+  var newNode = new Node(value)
+  var currentNode = this.head;
+
+  if (!this.head){
+    this.head = newNode;
+    this.tail = newNode;
+  } else {
+    while (currentNode.next){
+      currentNode = currentNode.next;
+    }
+    currentNode.next = newNode;
+    this.tail = newNode;
+  }
+}
+
+LinkedList.prototype.deleteMiddleNode = function(value){
+  var currentNode = this.head;
+  var nextNode = currentNode.next;
+
+  if (this.head.value === value || this.tail.value === value){
+    return this;
+  }
+  while (currentNode){
+    if (nextNode.value === value){
+      currentNode.next = nextNode.next;
+      return this
+    }
+    currentNode = currentNode.next;
+  }
+}
